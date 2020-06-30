@@ -8,6 +8,8 @@ const posterSchema = new Schema({
     description: String,
     votesUp: [],
     votesDown: []
+}, {
+    timestamps: true
 })
 
 module.exports = mongoose.model('Poster', posterSchema)
