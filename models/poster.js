@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const posterSchema = new Schema({
-    imageURL: String,
-    title: String,
-    description: String,
+    imagePath: {type: String, required: true},
+    title: {type: String, required: true},
+    description: {type: String, required: true},
     votesUp: [],
     votesDown: []
 }, {
