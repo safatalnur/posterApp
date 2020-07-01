@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Artist</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posters.forEach(function(p) { %>
+        <tr>
+            <td><%= p.title %></td>
+            <td><%= p.description %></td>
+            <td><%= p.artist %></td>
+          </tr>  
+      <% }) %>
+    </tbody>
+  </table>
+
+<%- include('../partials/footer') %>

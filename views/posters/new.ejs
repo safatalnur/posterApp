@@ -1,5 +1,21 @@
-<div>
-    <h1>Under Construction</h1>
+<%- include('../partials/header') %>
 
-</div>
 
+    <!-- Display form to submit a poster or art -->
+    <form action="/posters" method="POST">
+        <label>Title: 
+            <input type="text" name="title" placeholder="eg. Mona Lisa">
+        </label><br><br>
+
+        <label>Description: 
+            <input type="text" name="description" placeholder="eg. Most famous Picture">
+        </label><br><br>
+
+        <label>Name of the Artist:
+            <input type="text" name="artist" placeholder="eg. Leonardo da Vinci">
+        </label><br><br>
+
+        <input type="submit" value="Submit Your Art">
+    </form>
+    
+<%- include('../partials/footer') %>
