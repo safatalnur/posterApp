@@ -1,21 +1,18 @@
 <%- include('../partials/header') %>
-  <table>
-    <thead>
-      <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Artist</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% posters.forEach(function(p) { %>
-        <tr>
-            <td><%= p.title %></td>
-            <td><%= p.description %></td>
-            <td><%= p.artist %></td>
-          </tr>  
+  <div class="row">
+    <% posters.forEach(function(p) { %>
+        <div class="col-sm-12 col-md-3 col-lg-4">
+          <div class="card mt-4" style="width: 18rem;">
+            <img src="./uploads/<%=p.image%>" class="card-img-top" alt="Posters/Arts">
+            <div class="card-body">
+              <h3 class="card-title"><%= p.title %></h3>
+              <h4 class="card-title"><%= p.artist %></h4>
+            </div>
+          </div>
+        </div>
       <% }) %>
-    </tbody>
-  </table>
+    
+  </div>
+
 
 <%- include('../partials/footer') %>

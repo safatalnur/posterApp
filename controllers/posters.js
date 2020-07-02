@@ -17,7 +17,12 @@ function index(req,res) {
 }
 
 function create(req, res) {
-    const poster = new Poster(req.body)
+    const poster = new Poster({
+        image:req.file.filename,
+        title:req.body.title,
+        description:req.body.description,
+        artist:req.body.artist
+    })
     poster.save(function(err) {
         //handle error
         if (err) return res.render('posters/new')
