@@ -6,8 +6,53 @@
         <h3 class="card-title"><%= poster.title %></h3>
         <h6 class="card-title">By: <%= poster.artist %></h4>
         <p class="card-text"><%=poster.description%></p>
-        <p class="card-text"><small class="text-muted">Created At: <%=poster.createdAt %></small></p>
+        <p class="card-text"><small class="text-muted">Created At: <%=poster.createdAt.toLocaleDateString() %></small></p>
     </div>
+</div>
+
+<div class="ratings-container">
+    <h2 class="review-header">Review the Poster / Art</h2>
+    <form id="add-review-form" method="POST" action="/posters/<%= poster._id %>/ratings">
+        <div class="range-header">
+            <label>Review:</label><br>
+            <input type="text" name="content">
+        </div>
+        <div class="range-header">
+            <label for="customRange3">Rating: (Range 1 to 5)</label>
+        </div>
+        <div class="range-display">
+            <i class="fas fa-frown fa-5x"></i>
+            <input type="range" class="custom-range" min="0" max="5" step="0.5" id="customRange3" name="rating">
+            <i class="fas fa-smile fa-5x"></i>
+        </div>
+        
+        <button type="submit" class="btn btn-outline-success text-success mx-auto d-block" value="Add Review">Add Review</button>
+    </form>
+</div>
+
+<% if (poster.ratings.length) { %>
+<div class="rating-table">
+    <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Review</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% poster.ratings.forEach(function(r) { %>
+            <tr>
+              <td><%= r.createdAt.toLocaleDateString() %></td>
+              <td><%= r.content %></td>
+              <td><%= r.rating %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <h5 class="no-review">No Reviews Yet</h5>
+    <% } %>
 </div>
 
 <%- include('../partials/footer') %>

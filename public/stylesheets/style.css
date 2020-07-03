@@ -43,4 +43,52 @@ a {
   padding-top: 20vh;
 }
 
-/* All poster section */
+/* Review Section */
+.review-header {
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 10%;
+}
+
+.range-header {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 2%;
+}
+
+.range-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.custom-range {
+  padding-top: 3%;
+}
+
+table {
+  font-size: 20px;
+  text-align: center;
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.rating-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10%;
+}
+
+.no-review {
+  text-align: center;
+  padding: 2% 0%;
+}
