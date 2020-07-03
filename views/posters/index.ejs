@@ -6,14 +6,11 @@
             <img src="./uploads/<%=p.image%>" class="card-img-top" alt="Posters/Arts">
             <div class="card-body">
               <h3 class="card-title"><%= p.title %></h3>
-              <h4 class="card-title">By: <%= p.artist %></h4>
+              <h6 class="card-title">By: <%= p.artist %></h4>
+                <button type="button" class="btn btn-outline-success text-success"><a href="/posters/<%= p._id %>"> Detail</a></button>
             </div>
           </div>
         </div>
-      <% }) %>
-    
+      <% }) %>   
   </div>
-
-
 <%- include('../partials/footer') %>
-

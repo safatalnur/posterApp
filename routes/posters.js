@@ -4,6 +4,7 @@ const postersController = require('../controllers/posters')
 const multer = require('multer')
 const path = require('path')
 
+//Saving uploaded images
 const Storage = multer.diskStorage({
     destination:"./public/uploads/",
     filename: (req,file,cb)=> {
@@ -23,5 +24,8 @@ router.post('/', upload, postersController.create)
 
 //View all posters
 router.get('/', postersController.index)
+
+//View individual posters
+router.get('/:id', postersController.show)
 
 module.exports = router;

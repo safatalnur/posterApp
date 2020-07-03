@@ -4,6 +4,7 @@ module.exports = {
     index,
     new: newPoster,
     create,
+    show
 }
 
 function newPoster(req, res) {
@@ -13,6 +14,12 @@ function newPoster(req, res) {
 function index(req,res) {
     Poster.find({}, function(err, posters) {
         res.render('posters/index', {title: 'All Posters / Arts', posters})
+    })
+}
+
+function show(req,res) {
+    Poster.findById(req.params.id, function(err, poster) {
+        res.render('posters/show', {title: 'Poster Detail', poster})
     })
 }
 

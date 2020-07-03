@@ -1,0 +1,13 @@
+<%- include('../partials/header') %>
+
+<div class="card mb-3">
+    <img src="./uploads/<%=poster.image%>" class="card-img-top" alt="Posters/Arts" >
+    <div class="card-body">
+        <h3 class="card-title"><%= poster.title %></h3>
+        <h6 class="card-title">By: <%= poster.artist %></h4>
+        <p class="card-text"><%=poster.description%></p>
+        <p class="card-text"><small class="text-muted">Created At: <%=poster.createdAt %></small></p>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
