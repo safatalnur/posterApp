@@ -5,6 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
 require('./config/database')
+require('./config/passport')
+require('dotenv').config()
+const session = require('express-session')
+const passport = require('passport')
+
+
 
 var indexRouter = require('./routes/index');
 var postersRouter = require('./routes/posters');
@@ -26,6 +32,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'uploads')));
+
+app.use(
+  session({
+    secret: 'SEIRocks!',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+//Mount and initiate passport
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use('/', indexRouter);
 app.use('/posters', postersRouter);
