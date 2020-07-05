@@ -32,6 +32,10 @@ a {
   height: 250px;
 }
 
+.edit-delete-button {
+  margin-top: 5%;
+}
+
 /* Add new poster section */
 .submit-button {
   text-align: center;

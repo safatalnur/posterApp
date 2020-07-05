@@ -4,9 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
+const methodOverride = require('method-override')
 require('./config/database')
 require('./config/passport')
 require('dotenv').config()
+require('./routes/posters')
 const session = require('express-session')
 const passport = require('passport')
 
@@ -15,7 +17,8 @@ const passport = require('passport')
 var indexRouter = require('./routes/index');
 var postersRouter = require('./routes/posters');
 var ratingsRouter =require('./routes/ratings')
-const apiRouter = require('./routes/api')
+const apiRouter = require('./routes/api');
+const multer = require('multer');
 
 var app = express();
 
@@ -31,7 +34,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads',express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static('./uploads'))
+app.use(methodOverride('_method'))
 
 app.use(
   session({
@@ -49,6 +54,8 @@ app.use('/', indexRouter);
 app.use('/posters', postersRouter);
 app.use('/', ratingsRouter)
 app.use('/api', apiRouter)
+
+var upload = multer({dest: 'uploads/'})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -9,6 +9,14 @@
               <h3 class="card-title"><%= p.title %></h3>
               <h6 class="card-title">By: <%= p.artist %></h4>
                 <button type="button" class="btn btn-outline-success text-success"><a href="/posters/<%= p._id %>"> Detail</a></button>
+                <div class="edit-delete-button">
+                  <button type="button" class="btn btn-outline-success"><a href="/posters/edit/<%= p._id %>" method="GET">Edit</a></button>
+                    <form action="/posters/<%= p.id%>?_method=DELETE" method="POST">
+                      <span>
+                        <button type="submit" class="btn btn-outline-success">Delete</a></button>
+                      </span>
+                    </form>
+                </div>
             </div>
           </div>
         </div>

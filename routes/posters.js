@@ -4,9 +4,10 @@ const postersController = require('../controllers/posters')
 const multer = require('multer')
 const path = require('path')
 
+
 //Saving uploaded images
 const Storage = multer.diskStorage({
-    destination:"./public/uploads/",
+    destination:"./uploads",
     filename: (req,file,cb)=> {
         cb(null,file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
@@ -25,7 +26,14 @@ router.post('/', upload, postersController.create)
 //View all posters
 router.get('/', postersController.index)
 
-//View individual posters
-router.get('/:id', postersController.show)
+//View individual poster
+router.get('/:id', upload, postersController.show)
+
+//View and Edit individual posters
+router.get('/edit/:id', upload, postersController.edit)
+router.put('/:id', upload, postersController.update)
+
+//Delete individual poster
+router.delete('/:id', upload, postersController.deletePoster)
 
 module.exports = router;
