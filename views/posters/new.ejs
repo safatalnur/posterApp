@@ -2,40 +2,50 @@
 <section class="new-poster-container">
 <form action="/posters" method="POST" enctype="multipart/form-data">
 
-<div class="input-group mb-3">
+  <!-- <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroupFileAddon01">Upload Your Poster/Art</span>
+      </div>
+      <div class="custom-file">
+        <input type="file" name="myImage" accept="image/*" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+      </div>
+    </div> -->
+  <div class="input-group mb-3">
     <div class="input-group-prepend">
       <span class="input-group-text" id="inputGroupFileAddon01">Upload Your Poster/Art</span>
     </div>
-    <div class="custom-file">
-      <input type="file" name="myImage" accept="image/*" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-      <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+
+    <div class="input-group-text choose-file" id="inputGroupFileAddon01">
+      <input type="file" name="myImage" accept="image/*" >
     </div>
+
   </div>
 
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
-    </div>
-    <input type="text" name="title" placeholder="eg. Mona Lisa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-</div>
-  
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
-    </div>
-    <input type="text" name="description" placeholder="eg. Most famous Picture" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-</div>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Title</span>
+      </div>
+      <input type="text" name="title" placeholder="eg. Mona Lisa" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
+    
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Description</span>
+      </div>
+      <input type="text" name="description" placeholder="eg. Most famous Picture" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
 
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text" id="inputGroup-sizing-default">Name of Artist</span>
-    </div>
-    <input type="text" name="artist" placeholder="eg. Leonardo da Vinci" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-</div>
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Name of Artist</span>
+      </div>
+      <input type="text" name="artist" placeholder="eg. Leonardo da Vinci" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+  </div>
 
-<div class="submit-button">
-    <button type="submit" value="Submit Your Art" class="btn btn-success">Submit Your Poster / Art</button>
-</div>
+  <div class="submit-button">
+      <button type="submit" value="Submit Your Art" class="btn btn-success">Submit Your Poster / Art</button>
+  </div>
 
 </form>
 </section>    
