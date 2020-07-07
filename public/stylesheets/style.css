@@ -116,3 +116,8 @@ table td {
 .choose-file {
   background-color: #ffffff;
 }
+
+.all-poster-container {
+  display: flex;
+  justify-content: center;
+}
