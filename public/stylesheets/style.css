@@ -26,14 +26,30 @@ a {
   border-top: 1px solid lightgray;
 }
 
-.card-img-top {
+.image-all-poster {
   width: 100%;
   object-fit: cover;
   height: 250px;
 }
 
-.edit-delete-button {
+.card-detail {
+  display: flex;
+  justify-content: center;
+}
+.image-detail-poster {
+  object-fit: contain;
+  height: 50vh;
+}
+
+.edit-delete-buttons {
   margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.edit-button {
+  margin-right: 1%;
 }
 
 /* Add new poster section */

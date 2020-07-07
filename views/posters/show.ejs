@@ -1,17 +1,19 @@
 <%- include('../partials/header') %>
 
 <div class="card mb-3">
-    <img src=./uploads/<%=poster.inputGroupFile01%>" class="card-img-top" alt="Posters/Arts" >
+    <img src="/uploads/<%=poster.image%>" class="card-img-top image-detail-poster" alt="Posters/Arts" >
     <div class="card-body">
         <h3 class="card-title"><%= poster.title %></h3>
         <h6 class="card-title">By: <%= poster.artist %></h4>
         <p class="card-text"><%=poster.description%></p>
         <p class="card-text"><small class="text-muted">Created At: <%=poster.createdAt.toLocaleDateString() %></small></p>
-        <button type="button" class="btn btn-outline-success"><a href="/posters/edit/<%= poster._id %>">Edit</a></button>
-        <span>
-          <button type="button" class="btn btn-outline-success"><a href="#">Delete</a></button>
-        </span>
-
+        <div class="edit-delete-buttons">
+          <button type="button" class="btn btn-outline-success edit-button"><a href="/posters/edit/<%= poster._id %>">Edit</a></button>
+       
+          <form action="/posters/<%= poster.id%>?_method=DELETE" method="POST">
+              <button type="submit" class="btn btn-outline-success">Delete</a></button>
+          </form>        
+        </div>
     </div>
 </div>
 

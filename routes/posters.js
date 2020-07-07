@@ -31,9 +31,9 @@ router.get('/:id', upload, postersController.show)
 
 //View and Edit individual posters
 router.get('/edit/:id', upload, postersController.edit)
-router.put('/:id', upload, postersController.update)
+router.post('/edit/:id', upload, postersController.update)
 
 //Delete individual poster
-router.delete('/:id', upload, postersController.deletePoster)
+router.delete('/:id', postersController.deletePoster)
 
 module.exports = router;

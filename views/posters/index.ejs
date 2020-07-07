@@ -4,17 +4,17 @@
     <% posters.forEach(function(p) { %>
         <div class="col-sm-12 col-md-3 col-lg-4">
           <div class="card mt-4" style="width: 18rem;">
-            <img src="./uploads/<%=p.image%>" class="card-img-top" alt="Posters/Arts">
+            <div class="card-detail">
+              <img src="./uploads/<%=p.image%>" class="card-img-top image-all-poster" alt="Posters/Arts">
+            </div>
             <div class="card-body">
               <h3 class="card-title"><%= p.title %></h3>
               <h6 class="card-title">By: <%= p.artist %></h4>
                 <button type="button" class="btn btn-outline-success text-success"><a href="/posters/<%= p._id %>"> Detail</a></button>
-                <div class="edit-delete-button">
-                  <button type="button" class="btn btn-outline-success"><a href="/posters/edit/<%= p._id %>" method="GET">Edit</a></button>
+                <div class="edit-delete-buttons">
+                    <button type="button" class="btn btn-outline-success edit-button"><a href="/posters/edit/<%= p._id %>" method="GET">Edit</a></button>
                     <form action="/posters/<%= p.id%>?_method=DELETE" method="POST">
-                      <span>
-                        <button type="submit" class="btn btn-outline-success">Delete</a></button>
-                      </span>
+                      <button type="submit" class="btn btn-outline-success">Delete</a></button>
                     </form>
                 </div>
             </div>

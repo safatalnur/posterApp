@@ -34,17 +34,29 @@ function show(req,res) {
 }
 
 function edit(req,res) {
-    Poster.findById(req.param.id, function(err, poster) {
+    console.log('pARAMS: ', req.params.id)
+    Poster.findById(req.params.id, function(err, poster) {
+        console.log(poster)
         res.render('posters/edit', {title: 'Edit Poster', poster})
     })
 }
 
 function update(req,res) {
-    Poster.findById(req.param.id, function(err, poster) {
-        Poster.replaceOne(req.param.id, function(err, update) {
+    console.log(req.params)
+    Poster.findById(req.params.id).exec((err, result) => {
+        if (err) throw err;
+        Poster.findByIdAndUpdate(req.params.id, {
+            image: req.file !== undefined ? req.file.filename : result.image,
+            title: req.body.title !== '' ? req.body.title : result.title,
+            description: req.body.description !== '' ? req.body.description : result.description,
+            artist:req.body.artist !== '' ? req.body.artist : result.artist
+        }, {new: true}, function(err, poster) {
+            if (err) throw err;
+            console.log('Poster', poster)
             res.redirect('/posters')
         })
     })
+    
 }
 
 function create(req, res) {
@@ -65,7 +77,8 @@ function create(req, res) {
 }
 
 function deletePoster(req,res) {
-    Poster.deleteOne(req.param.id, function(err, poster) {
+    console.log('PARAMS: >>', req.params);
+    Poster.deleteOne({_id: req.params.id}, function(err, poster) {
         res.redirect('/posters')
     })
 }

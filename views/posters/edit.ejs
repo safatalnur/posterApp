@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 <section class="new-poster-container">
-<form action="/posters" method="POST" enctype="multipart/form-data">
+<form action="/posters/edit/<%= poster._id %>" method="POST" enctype="multipart/form-data">
 
 <div class="input-group mb-3">
     <div class="input-group-prepend">
