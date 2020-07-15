@@ -22,8 +22,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-      successRedirect: '/posters/',
-      failureRedirect: '/posters/'
+      successRedirect: '/posters',
+      failureRedirect: '/'
   }
 ))
 
