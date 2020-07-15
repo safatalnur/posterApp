@@ -43,7 +43,107 @@
 * Review on the posters/arts are available in the single posters/arts page
 * Click on "Add New Book" to create your own poster/art.
 
-## ???????
+## Model View Controller (MVC)
+
+* In Model, create a new schema:
+
+```javascript
+const mongoose = require('mongoose')
+
+const Schema = mongoose.Schema
+
+const ratingSchema = new Schema({
+    content: {type: String},
+    rating: {type: Number, min: 1, max: 5, default: 1}
+}, {
+    timestamps: true
+})
+
+const posterSchema = new Schema({
+    image: {type: String, required: true},
+    title: {type: String, required: true},
+    description: {type: String, required: true},
+    artist: {type: String, required: true},
+    ratings: [ratingSchema]
+}, {
+    timestamps: true
+})
+
+module.exports = mongoose.model('Poster', posterSchema)
+```
+* In controller, it accepts input and converts it to commands for the model
+
+```javascript
+const Poster = require('../models/poster')
+var path = require('path');
+const { nextTick } = require('process');
+
+
+
+module.exports = {
+    index,
+    new: newPoster,
+    create,
+    show,
+    edit,
+    update,
+    deletePoster,
+}
+
+function newPoster(req, res) {
+    res.render('posters/new', {title: 'Add Posters / Arts'})
+}
+
+function index(req,res) {
+    Poster.find({}, function(err, posters) {
+        res.render('posters/index', {
+             title: 'All Posters/Arts',
+             posters})
+    })
+}
+
+function show(req,res) {
+    const file = req.file
+    console.log('File>>>>>>>', file)
+    Poster.findById(req.params.id, function(err, poster) {
+        
+        res.render('posters/show', { title: 'Poster/Art Details', poster})
+    })
+}
+.......
+......
+```
+
+* In View, it presents the model in a particular format
+
+```javascript
+<%- include('../partials/header') %>
+<div class="all-poster-container">
+  <div class="row">
+    <% posters.forEach(function(p) { %>
+        <div class="col-sm-12 col-md-3 col-lg-4">
+          <div class="card mt-4" style="width: 18rem;">
+            <div class="card-detail">
+              <img src="./uploads/<%=p.image%>" class="card-img-top image-all-poster" alt="Posters/Arts">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title"><%= p.title %></h3>
+              <h6 class="card-title">By: <%= p.artist %></h4>
+                <button type="button" class="btn btn-outline-success text-success"><a href="/posters/<%= p._id %>"> Detail</a></button>
+                <div class="edit-delete-buttons">
+                    <button type="button" class="btn btn-outline-success edit-button"><a href="/posters/edit/<%= p._id %>" method="GET">Edit</a></button>
+                    <form action="/posters/<%= p.id%>?_method=DELETE" method="POST">
+                      <button type="submit" class="btn btn-outline-success">Delete</a></button>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      <% }) %>   
+  </div>
+</div>  
+<%- include('../partials/footer') %>
+```
 
 ## Screenshots
 * All Posters Screen shot:
