@@ -4,10 +4,20 @@
     <title>Poster App</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/11d88d03e3.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <%- include('./partials/header') %>
+    <h1 style="text-align: center;"><%= title %></h1>
+    <div style="text-align: center;">
+      <% if (user) { %>
+        <a class="dropdown-item" href="/logout"><i class="fas fa-sign-in-alt"></i> Sign Out</a>
+      <% } else { %>
+        <a class="btn btn-success" href="/auth/google"><i class="fas fa-sign-out-alt"></i> Sign In</a>
+      <% } %>
+    </div>
+
     <div class="bodyContainer">
       <img class="backgroundImage" src="images/background.jpg" alt="Poster Collage: " />
 

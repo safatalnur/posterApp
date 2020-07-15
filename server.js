@@ -33,14 +33,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/uploads',express.static(path.join(__dirname, 'uploads')));
-// app.use('/uploads', express.static('./uploads'))
-app.use(methodOverride('_method'))
 
 app.use(
   session({
-    secret: 'SEIRocks!',
+    secret: 'POSTERking!',
     resave: false,
     saveUninitialized: true,
   })
@@ -49,6 +45,15 @@ app.use(
 //Mount and initiate passport
 app.use(passport.initialize())
 app.use(passport.session())
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads',express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static('./uploads'))
+app.use(methodOverride('_method'))
+
+
+
 
 app.use('/', indexRouter);
 app.use('/posters', postersRouter);

@@ -20,7 +20,9 @@ function newPoster(req, res) {
 
 function index(req,res) {
     Poster.find({}, function(err, posters) {
-        res.render('posters/index', { title: 'All Posters/Arts', posters})
+        res.render('posters/index', {
+             title: 'All Posters/Arts',
+             posters})
     })
 }
 
