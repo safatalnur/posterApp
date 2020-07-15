@@ -3,6 +3,7 @@ var router = express.Router();
 const postersController = require('../controllers/posters')
 const multer = require('multer')
 const path = require('path')
+const notLoggedIn = require('./index')
 
 
 //Saving uploaded images
@@ -21,19 +22,19 @@ const upload = multer({
 router.get('/new', postersController.new);
 
 // POST new Poster/Art
-router.post('/', upload, postersController.create)
+router.post('/', upload, notLoggedIn, postersController.create)
 
 //View all posters
-router.get('/', postersController.index)
+router.get('/', notLoggedIn, postersController.index)
 
 //View individual poster
-router.get('/:id', upload, postersController.show)
+router.get('/:id', upload, notLoggedIn, postersController.show)
 
 //View and Edit individual posters
-router.get('/edit/:id', upload, postersController.edit)
-router.post('/edit/:id', upload, postersController.update)
+router.get('/edit/:id', upload, notLoggedIn, postersController.edit)
+router.post('/edit/:id', upload, notLoggedIn, postersController.update)
 
 //Delete individual poster
-router.delete('/:id', postersController.deletePoster)
+router.delete('/:id', notLoggedIn, postersController.deletePoster)
 
 module.exports = router;

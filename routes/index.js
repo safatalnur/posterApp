@@ -11,7 +11,7 @@ const userController = require('../controllers/users')
 //     title: 'Create and Submit Your Own Poster/Art' 
 //   });
 // });
-router.get('/', userController.index)
+router.get('/home', userController.index)
 
 // Log In route
 router.get('/auth/google', passport.authenticate(
@@ -32,12 +32,12 @@ router.get('/oauth2callback', passport.authenticate(
 // Log out route
 router.get('/logout', function(req,res){
   req.logout()
-  res.redirect('/')
+  res.redirect('/home')
 })
 
-// function loggedIn(req, res, next){
-//   if (req.isAuthenticated()) return next()
-//   res.redirect('/auth/google')
-// }
+function notLoggedIn(req, res, next){
+  if (req.isAuthenticated()) return next()
+  res.redirect('/auth/google')
+}
 
 module.exports = router;
