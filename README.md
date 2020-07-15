@@ -17,13 +17,14 @@
 1. Clone the project (https://github.com/safatalnur/posterApp)
 2. In the root directory, ```npm install``` to install dependencies
 3. ```nodemon``` to start the server
-4. Go to ```localhost:3000``` in a browser
+4. Go to ```localhost:3000/home``` in a browser
 5. Here is the heroku link.
 
 
 ## Planning Stage
 * [Trello Board](https://trello.com/b/K5kjmHeS)
-* Entity Relationship Diagram (ERD)![](./screenshots/BookApp.png)
+* Entity Relationship Diagram (ERD)
+![](./screenshots/posterapp.png)
 * Wire Frame Design
 * Landing Page
 ![](./wireframing/Landingpage.png)
