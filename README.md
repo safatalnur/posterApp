@@ -46,11 +46,11 @@
 
 ## Screenshots
 * All Posters Screen shot:
-
+![](./screenshots/Allposters.png)
 * Add New Poster Screen Shot:
-
-* Single poster screen shot:
-
+![](./screenshots/Addnew.png)
+* Single poster Review screen shot:
+![](./screenshots/Review.png)
 
 ## Environment
 * macOS catalina 10.15.5
