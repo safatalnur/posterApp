@@ -22,19 +22,19 @@ const upload = multer({
 router.get('/new', postersController.new);
 
 // POST new Poster/Art
-router.post('/', upload, notLoggedIn, postersController.create)
+router.post('/', upload, postersController.create)
 
 //View all posters
-router.get('/', notLoggedIn, postersController.index)
+router.get('/', postersController.index)
 
 //View individual poster
-router.get('/:id', upload, notLoggedIn, postersController.show)
+router.get('/:id', upload, postersController.show)
 
 //View and Edit individual posters
-router.get('/edit/:id', upload, notLoggedIn, postersController.edit)
-router.post('/edit/:id', upload, notLoggedIn, postersController.update)
+router.get('/edit/:id', upload, postersController.edit)
+router.post('/edit/:id', upload, postersController.update)
 
 //Delete individual poster
-router.delete('/:id', notLoggedIn, postersController.deletePoster)
+router.delete('/:id', postersController.deletePoster)
 
 module.exports = router;

@@ -28,7 +28,7 @@ function index(req,res) {
 
 function show(req,res) {
     const file = req.file
-    console.log('File>>>>>>>', file)
+    // console.log('File>>>>>>>', file)
     Poster.findById(req.params.id, function(err, poster) {
         
         res.render('posters/show', { title: 'Poster/Art Details', poster})
@@ -36,7 +36,7 @@ function show(req,res) {
 }
 
 function edit(req,res) {
-    console.log('pARAMS: ', req.params.id)
+    // console.log('pARAMS: ', req.params.id)
     Poster.findById(req.params.id, function(err, poster) {
         console.log(poster)
         res.render('posters/edit', {title: 'Edit Poster', poster})
@@ -44,7 +44,7 @@ function edit(req,res) {
 }
 
 function update(req,res) {
-    console.log(req.params)
+    // console.log(req.params)
     Poster.findById(req.params.id).exec((err, result) => {
         if (err) throw err;
         Poster.findByIdAndUpdate(req.params.id, {
@@ -79,7 +79,7 @@ function create(req, res) {
 }
 
 function deletePoster(req,res) {
-    console.log('PARAMS: >>', req.params);
+    // console.log('PARAMS: >>', req.params);
     Poster.deleteOne({_id: req.params.id}, function(err, poster) {
         res.redirect('/posters')
     })
